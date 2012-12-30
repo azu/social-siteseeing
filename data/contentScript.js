@@ -3,7 +3,12 @@
  * Date: 12/10/08 19:22
  * License: MIT License
  */
-self.port.on("seeing", function(data){
+
+var panel = {
+    clear : "kPanelClear",
+    seeing : "kSeeing"
+};
+self.port.on(panel.seeing, function(data){
     //テンプレートの取得
     var source = document.querySelector("#entry-template").innerHTML;
     //テンプレートのコンパイル
@@ -35,7 +40,7 @@ self.port.on("seeing", function(data){
     //結果を出力
     document.querySelector(data.insertElementSelector).innerHTML = result;
 });
-self.port.on("clear", function(data){
+self.port.on(panel.clear, function(data){
     var siteDiv = document.querySelectorAll("#contents > div");
     for (var i = 0, len = siteDiv.length; i < len; i++){
         var div = siteDiv[i];
