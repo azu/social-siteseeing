@@ -21,6 +21,14 @@
             "type" : "integer",
             "value" : 300
         }
+        ,
+        {
+            "name" : "shortCutKey",
+            "title" : "shortcut Key",
+            "description" : "Hotkey combo : ref. https://dev.mozilla.jp/addon-sdk-docs/packages/addon-kit/hotkeys.html",
+            "type" : "string",
+            "value" : "meta-shift-c"
+        }
 
     ]
 
