@@ -16,15 +16,11 @@ window.addEventListener("click", function(event){
     }
 }, false);
 self.port.on(panel.seeing, function(data){
-    var insertElem = document.querySelector(data.insertElementSelector);
-
     // 前回の位置が残るので、トップにスクロールしておく
     window.scrollTo(0, 0);
+    var insertElem = document.querySelector(data.insertElementSelector);
     // 既に中身があるなら消す
     emptyElem(insertElem);
-    if (!data){
-        return;
-    }
     //テンプレートの取得
     var source = document.querySelector("#entry-template").innerHTML;
     //テンプレートのコンパイル
@@ -39,11 +35,17 @@ self.port.on(panel.seeing, function(data){
     loadingElem.classList.remove("loading");
 });
 // クリア
-function emptyTemplate(){
-    var siteDiv = document.querySelectorAll("#contents > div");
-    for (var i = 0, len = siteDiv.length; i < len; i++){
-        var div = siteDiv[i];
-        emptyElem(div);
+function emptyTemplate(selector){
+    if (selector){
+        var elem = document.querySelector(selector);
+        console.log(selector);
+        emptyElem(elem);
+    }else{
+        var siteDiv = document.querySelectorAll("#contents > div");
+        for (var i = 0, len = siteDiv.length; i < len; i++){
+            var div = siteDiv[i];
+            emptyElem(div);
+        }
     }
 }
 self.port.on(panel.clear, emptyTemplate)
