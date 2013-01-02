@@ -8,42 +8,49 @@ var panel = {
     clear : "kPanelClear",
     seeing : "kSeeing"
 };
+window.addEventListener("click", function(event){
+    var target = event.target
+    if (target.nodeName == 'A'){
+        event.preventDefault();
+        self.port.emit('click-link', target.toString());
+    }
+}, false);
 self.port.on(panel.seeing, function(data){
+    var insertElem = document.querySelector(data.insertElementSelector);
+
+    // 前回の位置が残るので、トップにスクロールしておく
+    window.scrollTo(0, 0);
+    // 既に中身があるなら消す
+    emptyElem(insertElem);
+    if (!data){
+        return;
+    }
     //テンプレートの取得
     var source = document.querySelector("#entry-template").innerHTML;
     //テンプレートのコンパイル
     var template = Handlebars.compile(source, function(){
     });
-    //テンプレートに渡すパラメータ
-    var context = data;
-
-    //独自のヘルパーファンクションを登録
-    Handlebars.registerHelper('fullName', function(person){
-        return person.firstName + " " + person.lastName;
-    });
-    Handlebars.registerHelper('agree_button', function(){
-        return new Handlebars.SafeString("<button>I agree. I "
-                + this.emotion + " " + this.name + "</button>");
-    });
-    Handlebars.registerHelper('list', function(items, options){
-        var out = "<ul>";
-
-        for (var i = 0, l = items.length; i < l; i++){
-            out = out + "<li>" + options.fn(items[i]) + "</li>";
-        }
-
-        return out + "</ul>";
-    });
     //テンプレートとパラメータをマージ
-    var result = template(context);
-
+    var result = template(data);
     //結果を出力
-    document.querySelector(data.insertElementSelector).innerHTML = result;
+    insertElem.innerHTML = result;
+
+    var loadingElem = document.querySelector(data.insertElementSelector + "> .loading");
+    loadingElem.classList.remove("loading");
 });
-self.port.on(panel.clear, function(data){
+// クリア
+function emptyTemplate(){
     var siteDiv = document.querySelectorAll("#contents > div");
     for (var i = 0, len = siteDiv.length; i < len; i++){
         var div = siteDiv[i];
-        div.innerHTML = "";
+        emptyElem(div);
     }
-})
+}
+self.port.on(panel.clear, emptyTemplate)
+
+// elementの子を消す
+function emptyElem(element){
+    while (element.firstChild){
+        element.removeChild(element.firstChild);
+    }
+}

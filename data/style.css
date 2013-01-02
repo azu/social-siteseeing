@@ -1,0 +1,27 @@
+.user-image {
+    width: 16px;
+}
+
+#contents {
+    width: auto;
+}
+
+/* 点線 */
+ul.comment_list {
+    overflow: hidden;
+    list-style: none;
+}
+
+li.comment_item {
+    margin-top: -1px;
+    padding: 5px;
+    border-top: 1px dotted #999;
+}
+
+.loading > * {
+    display: none;
+}
+
+.loading::after {
+    content: "ロード中";
+}
