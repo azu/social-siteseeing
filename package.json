@@ -1,9 +1,27 @@
 {
-    "name": "social-siteseeing", 
-    "license": "MPL 2.0", 
-    "author": "azu",
-    "version": "0.1", 
-    "fullName": "social-siteseeing", 
-    "id": "jid1-j0VT3h1nt2ybFg", 
-    "description": "a basic add-on"
+    "name" : "social-siteseeing",
+    "license" : "MPL 2.0",
+    "author" : "azu",
+    "version" : "0.1",
+    "fullName" : "social-siteseeing",
+    "id" : "jid1-j0VT3h1nt2ybFg",
+    "description" : "はてなブックマークとTwitterのコメントを閲覧",
+    "preferences" : [
+        {
+            "name" : "panelWidth",
+            "title" : "Panel width(px)",
+            "description" : "Panelの横幅のサイズ指定",
+            "type" : "integer",
+            "value" : 600
+        },
+        {
+            "name" : "panelHeight",
+            "title" : "Panel height(px)",
+            "description" : "Panelの縦幅のサイズ指定",
+            "type" : "integer",
+            "value" : 300
+        }
+
+    ]
+
 }

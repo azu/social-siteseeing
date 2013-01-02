@@ -4,7 +4,7 @@
  * License: MIT License
  */
 
-var topsy = require("topsy");
+var topsy = require("topsy-twitter");
 require("console-dir");
 
 function stubFn(){
