@@ -1,7 +1,9 @@
 .user-image {
     width: 16px;
 }
-
+h3 {
+    font-size: 14px;
+}
 #contents {
     width: auto;
 }
