@@ -8,10 +8,14 @@
     window.addEventListener("CONTENT_social_site_seeing_message", function(request){
         var res = request.data;
         if (res === "hide"){
-            self.postMessage(res);
+            self.postMessage({
+                hide : true
+            });
         }else{
             // PageMod -> Chrome
-            self.postMessage(res);
+            self.postMessage({
+                url : res
+            });
         }
     }, false);
 
@@ -20,6 +24,7 @@
         var argStr = JSON.stringify(args || []);
         window.location.href = "javascript:void " + func + ".apply(null," + argStr + ")";
     }
+
     var bootstrap = function(){
         hookMain();
         function hookMain(){
@@ -29,6 +34,12 @@
                     var permalink = item.link.replace(/#/, '%23');
                     pingToChrome(permalink);
                 }
+            });
+            var _j = window.Keybind._keyfunc.j;
+            /*jを保存してから書き換える*/
+            window.Keybind.add('j', function(evt){
+                _j();
+                pingToChrome("hide");
             });
         }
 
