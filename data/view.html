@@ -18,7 +18,13 @@
                     <div>
                         <img class="user-image" src="{{user_image}}"/>
                         <span class="user">{{user}}</span>
-                        <span class="date">{{date}}</span>
+                        <span class="date">
+                            {{#if permalink_url}}
+                                <a href="{{permalink_url}}">{{date}}</a>
+                            {{else}}
+                                {{date}}
+                            {{/if}}
+                        </span>
                     </div>
                     <span class="comment">{{auto_link_comment comment}}</span></li>
                 {{/each}}
