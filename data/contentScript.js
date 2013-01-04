@@ -25,14 +25,13 @@ self.port.on(panel.seeing, function(data){
     var source = document.querySelector("#entry-template").innerHTML;
     // autolink
     Handlebars.registerHelper('auto_link_comment', function(text){
-        var escapedComment = Handlebars.Utils.escapeExpression(text);
+        // autolinkTwitter 内でHTMLエスケープされているためHandlebarではしない
         return new Handlebars.SafeString(
-                window.autolinkTwitter(escapedComment)
+                window.autolinkTwitter(text)
         );
     });
     //テンプレートのコンパイル
-    var template = Handlebars.compile(source, function(){
-    });
+    var template = Handlebars.compile(source);
     //テンプレートとパラメータをマージ
     var result = template(data);
     //結果を出力
