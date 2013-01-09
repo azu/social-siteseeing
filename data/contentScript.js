@@ -44,7 +44,6 @@ self.port.on(panel.seeing, function(data){
 function emptyTemplate(selector){
     if (selector){
         var elem = document.querySelector(selector);
-        console.log(selector);
         emptyElem(elem);
     }else{
         var siteDiv = document.querySelectorAll("#contents > div");

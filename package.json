@@ -29,6 +29,15 @@
             "type" : "string",
             "value" : "meta-shift-c"
         }
+        ,
+        {
+            "name" : "topsyAPIKey",
+            "title" : "Topsy API Key",
+            "description" : "You have to get Topsy API Key http://manage.topsy.com/",
+            "type" : "string",
+            "value" : "You have to get Topsy API Key http://manage.topsy.com/"
+        }
+
 
     ]
 
