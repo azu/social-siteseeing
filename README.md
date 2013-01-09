@@ -1,8 +1,18 @@
 # What's this?
 
-はてなブックマークやTwitterのコメントなどを見られる予定のアドオン.
+はてなブックマークやTwitterのコメントなどを見られるFirefoxアドオン.
 
-はてなブックマークのコメントビューアー部分のような感じ。
+SBM Counterやはてなブックマークのコメントビューアー部分のような感じ。
 
+## How to use
 
- [Add-on SDK](http://www.asukaze.net/etc/jetpack/ "Add-on SDK") を使って書かれています
+Twitterのコメントを取得するのに [Topsy's Otter API](http://code.google.com/p/otterapi/ "Topsy's Otter API") を利用しています。
+
+無料版のAPIには取得回数制限があるため、各自ユーザーが [API keys » Your API keys](http://manage.topsy.com/app "API keys » Your API keys") で、
+アカウントを作成してAPI Keyを取得し、アドオンの設定画面にてAPI Keyを設定する必要があります。
+
+![Setting Window](http://monosnap.com/image/QaNczM6nL8XmqvcjUqg23bxdZ)
+
+## Add-on SDK
+
+[Add-on SDK](https://dev.mozilla.jp/addon-sdk-docs/ "Add-on SDK") を使って書かれています
