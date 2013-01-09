@@ -11,7 +11,7 @@ Twitterのコメントを取得するのに [Topsy's Otter API](http://code.goog
 無料版のAPIには取得回数制限があるため、各自ユーザーが [API keys » Your API keys](http://manage.topsy.com/app "API keys » Your API keys") で、
 アカウントを作成してAPI Keyを取得し、アドオンの設定画面にてAPI Keyを設定する必要があります。
 
-![Setting Window](http://monosnap.com/image/QaNczM6nL8XmqvcjUqg23bxdZ)
+<img src="http://monosnap.com/image/QaNczM6nL8XmqvcjUqg23bxdZ.png">
 
 ## Add-on SDK
 
