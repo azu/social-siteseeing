@@ -8,6 +8,11 @@ SBM Counterやはてなブックマークのコメントビューアー部分の
 
 ![img](http://monosnap.com/image/NKZFRN6MStFMPwMk0UIkWKpkelfzPi.png)
 
+* social-siteseeing のボタンをクリック
+* ショートカットから表示
+
+が行えます。
+
 ---
 
 TopsyのAPIを使ったTwitter/Google+のコメント取得も実装してありますが、有料APIじゃないと使いものにならないので削除してます…
